@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ASHA Mobile EHR Companion — Offline-First Maternal & Child Health Platform</title>
+  <link rel="manifest" href="/static/manifest.json">
+  <link rel="icon" type="image/png" href="/static/icon-192.png">
+  <link rel="apple-touch-icon" href="/static/icon-192.png">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <meta name="theme-color" content="#b91c1c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <div class="header-top">
+      <div class="brand-section">
+        <div class="brand-icon">⚕</div>
+        <div>
+          <div class="brand-title" data-i18n="app_title">ASHA Mobile EHR Companion</div>
+          <div class="brand-subtitle" data-i18n="app_subtitle">Offline-First Maternal & Child Healthcare Platform</div>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Prominent 108 Emergency SOS Button -->
+        <button id="btn-header-emergency" class="btn btn-emergency-pulse">
+          🚨 <span data-i18n="emergency_sos_btn">EMERGENCY SOS (108)</span>
+        </button>
+
+        <!-- User Role Switcher for Live Demo -->
+        <select id="role-switcher" class="form-control" style="width: auto; height: 36px; padding: 0.2rem 0.5rem; font-size: 0.82rem;" title="Switch Role to test RBAC">
+          <option value="asha_lakshmi">👩‍⚕️ ASHA (Lakshmi - 9840112345)</option>
+          <option value="anm_meena">🩺 ANM Nurse (Meenakshi - SC)</option>
+          <option value="mo_suresh">👨‍⚕️ Medical Officer (Dr. Suresh - PHC)</option>
+          <option value="supervisor_radha">📊 Supervisor (Radha - Block)</option>
+          <option value="admin_system">⚙️ System Administrator</option>
+        </select>
+
+        <!-- Mobile Login Modal Opener -->
+        <button id="btn-open-login" class="btn btn-outline btn-sm" title="Login with Mobile + PIN/OTP">
+          📱 <span>Mobile Login</span>
+        </button>
+
+        <!-- Multilingual Language Selector (Tamil, English, Hindi) -->
+        <select id="lang-selector" class="form-control" style="width: auto; height: 36px; padding: 0.2rem 0.5rem; font-size: 0.82rem;">
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+        </select>
+
+        <!-- Simulated Offline Toggle -->
+        <label class="offline-toggle-label" title="Simulate field conditions with zero internet">
+          <input type="checkbox" id="offline-sim-toggle">
+          <span>Simulate Offline</span>
+        </label>
+
+        <!-- Sync Indicator & Manual Sync Button -->
+        <span id="header-sync-status" class="status-pill status-online">✓ Online</span>
+        <button id="header-sync-btn" class="btn btn-outline btn-sm">
+          🔄 <span data-i18n="sync_now_btn">Sync Pending</span>
+          <span id="sync-badge-count" style="display:none; background:#ef4444; color:#fff; border-radius:50%; padding:0.1rem 0.4rem; font-size:0.75rem; margin-left:0.3rem;">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Active User & Scope Bar -->
+    <div class="user-scope-bar">
+      <div id="current-user-badge">Loading user profile...</div>
+      <div class="scope-tagline">National Health Mission (NHM) & MoHFW Digital EHR Companion</div>
+    </div>
+
+    <!-- Navigation Scroll Tabs -->
+    <nav class="nav-scroll">
+      <button class="nav-tab active" data-view="dashboard">
+        📊 <span data-i18n="nav_dashboard">Dashboard</span>
+      </button>
+      <button class="nav-tab" data-view="beneficiaries">
+        👥 <span data-i18n="nav_beneficiaries">Beneficiaries</span>
+      </button>
+      <button class="nav-tab" data-view="registration">
+        📝 <span data-i18n="nav_registration">New Registration</span>
+      </button>
+      <button class="nav-tab" data-view="ehr">
+        📋 <span data-i18n="nav_ehr">Health Records (EHR)</span>
+      </button>
+      <button class="nav-tab" data-view="anc">
+        🩺 <span data-i18n="nav_anc">ANC Visits & TT</span>
+      </button>
+      <button class="nav-tab" data-view="high_risk">
+        ⚡ <span data-i18n="nav_high_risk">High-Risk Cases</span>
+      </button>
+      <button class="nav-tab" data-view="children">
+        👶 <span data-i18n="nav_children">Child & Immunization</span>
+      </button>
+      <button class="nav-tab" data-view="reminders">
+        🔔 <span data-i18n="nav_reminders">Alerts & Reminders</span>
+      </button>
+      <button class="nav-tab" data-view="referrals">
+        🚨 <span data-i18n="nav_referrals">108 Referrals</span>
+      </button>
+      <button class="nav-tab" data-view="home_visits">
+        🏡 <span data-i18n="nav_home_visits">Home Visits & GPS</span>
+      </button>
+      <button class="nav-tab" data-view="pnc">
+        🤱 <span data-i18n="nav_pnc">Postnatal Care</span>
+      </button>
+      <button class="nav-tab" data-view="supervisor" style="display:none;">
+        📈 <span data-i18n="nav_supervisor">Supervisor Reports</span>
+      </button>
+      <button class="nav-tab" data-view="assistant">
+        🤖 <span data-i18n="nav_assistant">Maternal AI</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="main-container">
+    <div id="view-dashboard" class="view-section active"></div>
+    <div id="view-beneficiaries" class="view-section"></div>
+    <div id="view-registration" class="view-section"></div>
+    <div id="view-ehr" class="view-section"></div>
+    <div id="view-anc" class="view-section"></div>
+    <div id="view-high_risk" class="view-section"></div>
+    <div id="view-children" class="view-section"></div>
+    <div id="view-reminders" class="view-section"></div>
+    <div id="view-referrals" class="view-section"></div>
+    <div id="view-home_visits" class="view-section"></div>
+    <div id="view-pnc" class="view-section"></div>
+    <div id="view-supervisor" class="view-section"></div>
+    <div id="view-assistant" class="view-section"></div>
+  </main>
+
+  <!-- Mobile Floating Action Button (Quick 108 Emergency Dial & Dispatch) -->
+  <div id="floating-sos-btn" class="floating-sos" title="One-tap 108 Emergency Dispatch">
+    🚨 <span>108 SOS</span>
+  </div>
+
+  <!-- Mobile Bottom App Bar (Sticky touch-friendly navigation on phones) -->
+  <nav class="mobile-bottom-nav">
+    <button class="bottom-tab active" data-view="dashboard">
+      <span class="tab-icon">📊</span>
+      <span class="tab-label" data-i18n="nav_dashboard">Home</span>
+    </button>
+    <button class="bottom-tab" data-view="beneficiaries">
+      <span class="tab-icon">👥</span>
+      <span class="tab-label" data-i18n="nav_beneficiaries">Mothers</span>
+    </button>
+    <button class="bottom-tab" data-view="ehr">
+      <span class="tab-icon">📋</span>
+      <span class="tab-label" data-i18n="nav_ehr">EHR</span>
+    </button>
+    <button class="bottom-tab" data-view="children">
+      <span class="tab-icon">👶</span>
+      <span class="tab-label" data-i18n="nav_children">Children</span>
+    </button>
+    <button class="bottom-tab" data-view="reminders">
+      <span class="tab-icon">🔔</span>
+      <span class="tab-label" data-i18n="nav_reminders">Alerts</span>
+    </button>
+    <button class="bottom-tab sos-tab" id="mobile-bottom-sos">
+      <span class="tab-icon">🚨</span>
+      <span class="tab-label">108 SOS</span>
+    </button>
+  </nav>
+
+  <!-- Universal Modal Overlay -->
+  <div id="app-modal" class="modal-overlay">
+    <div class="modal-content" id="modal-body"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="app-toast" style="display:none; position:fixed; bottom:70px; right:20px; color:#fff; padding:0.85rem 1.25rem; border-radius:8px; z-index:1000; box-shadow:0 4px 16px rgba(0,0,0,0.3); font-weight:600; max-width:90%;"></div>
+
+  <!-- Scripts -->
+  <script src="/static/js/i18n/en.js"></script>
+  <script src="/static/js/i18n/ta.js"></script>
+  <script src="/static/js/i18n/hi.js"></script>
+  <script src="/static/js/db/local_db.js"></script>
+  <script src="/static/js/services/api.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

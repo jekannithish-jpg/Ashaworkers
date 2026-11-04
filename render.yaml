@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: asha-ehr-companion
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start_system.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DEBUG
+        value: "false"
+

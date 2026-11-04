@@ -1,0 +1,36 @@
+[
+  {
+    "document_code": "MOHFW-ANC-2024-V2",
+    "title": "MoHFW Guidelines for Antenatal Care and Skilled Attendance at Birth",
+    "organization": "Ministry of Health & Family Welfare (MoHFW), Govt of India",
+    "version": "2.1.0",
+    "effective_year": 2024,
+    "sections": [
+      {
+        "section_id": "ANC_SCHEDULE",
+        "topic": "Approved ANC Visit Schedule",
+        "keywords": ["anc schedule", "visit schedule", "when to visit", "antenatal care", "how many visits", "trimester"],
+        "content": "According to MoHFW guidelines, every pregnant woman must receive a minimum of 4 Antenatal Care (ANC) checkups: 1) ANC-1: As early as possible, within the first 12 weeks (1st trimester) for registration, dating, and baseline checks; 2) ANC-2: Between 14 and 26 weeks (2nd trimester) for anomaly screening and fundal height check; 3) ANC-3: At 28 to 34 weeks (3rd trimester) for fetal growth, Hb re-test, and pre-eclampsia monitoring; 4) ANC-4: Between 36 weeks and delivery for pre-delivery birth preparedness and presentation check."
+      },
+      {
+        "section_id": "ANC_INVESTIGATIONS",
+        "topic": "Mandatory ANC Clinical Investigations",
+        "keywords": ["tests", "investigations", "blood test", "urine test", "blood pressure", "hb", "hemoglobin", "ultrasound"],
+        "content": "Mandatory investigations during ANC include: 1) Blood Pressure and Weight measurement at every visit; 2) Hemoglobin (Hb) testing at registration and at 28-30 weeks (Hb < 7.0 g/dL denotes severe anaemia requiring urgent Medical Officer referral); 3) Urine Albumin and Sugar testing to screen for pre-eclampsia and gestational diabetes; 4) Blood Grouping and Rh typing; 5) Syphilis (VDRL/RPR) and HIV screening; 6) At least one Ultrasound scan in the 2nd trimester (18-20 weeks) for anomaly evaluation."
+      },
+      {
+        "section_id": "IFA_CALCIUM",
+        "topic": "Iron-Folic Acid (IFA) and Calcium Supplementation",
+        "keywords": ["ifa", "iron", "calcium", "tablets", "supplementation", "folic acid", "anemia"],
+        "content": "Nutritional supplementation protocol: 1) Folic Acid (400 mcg daily) during the first trimester (up to 12 weeks) to prevent neural tube defects; 2) Red IFA tablets (100 mg elemental iron + 500 mcg folic acid) daily starting from 14 weeks for at least 180 days during pregnancy and 180 days postpartum; 3) Calcium (500 mg elemental calcium + 250 IU Vit D3) twice daily starting from 14 weeks to delivery (do NOT take calcium together with iron; maintain a 2-hour interval)."
+      },
+      {
+        "section_id": "TD_VACCINE",
+        "topic": "Tetanus and Adult Diphtheria (Td) Immunization",
+        "keywords": ["td", "tetanus", "injection", "vaccine", "immunization", "tt"],
+        "content": "Td immunization schedule: 1) Td-1: Given early in pregnancy at registration; 2) Td-2: Given 4 weeks after Td-1; 3) Td-Booster: If the woman has received 2 Td doses in a pregnancy within the last 3 years, only 1 Td Booster dose is required."
+      }
+    ]
+  }
+]
+

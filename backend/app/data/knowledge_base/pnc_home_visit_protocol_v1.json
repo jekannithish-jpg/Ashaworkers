@@ -1,0 +1,30 @@
+[
+  {
+    "document_code": "TNHSP-PNC-2023-V1",
+    "title": "Postnatal Care and Home Based Newborn Care (HBNC) Operational Protocol",
+    "organization": "Tamil Nadu Health Systems Project & NHM",
+    "version": "1.4.0",
+    "effective_year": 2023,
+    "sections": [
+      {
+        "section_id": "PNC_VISIT_SCHEDULE",
+        "topic": "Postnatal Care (PNC) Visit Schedule",
+        "keywords": ["pnc schedule", "postnatal care", "after delivery", "days of visit", "hbnc", "newborn visits"],
+        "content": "PNC visit schedule for community health workers: For institutional delivery, 6 visits are mandatory on Day 3, Day 7, Day 14, Day 21, Day 28, and Day 42 (Day 1 is conducted at facility before discharge). For home deliveries, 7 visits are mandatory: Day 1 (within 24 hours), Day 3, Day 7, Day 14, Day 21, Day 28, and Day 42."
+      },
+      {
+        "section_id": "POSTPARTUM_DANGER_SIGNS",
+        "topic": "Postpartum Maternal Danger Signs",
+        "keywords": ["postpartum danger signs", "excessive bleeding", "pph", "foul lochia", "puerperal fever", "calf pain"],
+        "content": "Critical postpartum maternal danger signs: 1) Severe vaginal bleeding (soaking more than two pads in an hour or passing large clots) denoting Postpartum Hemorrhage (PPH); 2) Severe abdominal pain or uterine tenderness; 3) High fever (> 101°F) with foul-smelling lochia indicating puerperal sepsis; 4) Severe headache with visual disturbance or fits (postpartum eclampsia); 5) Red, swollen, painful calf or leg indicating deep vein thrombosis (DVT); 6) Severe depressive symptoms or thoughts of harming baby."
+      },
+      {
+        "section_id": "NEWBORN_ESSENTIALS",
+        "topic": "Essential Newborn Care and Feeding Support",
+        "keywords": ["breastfeeding", "newborn", "cord care", "colostrum", "exclusive breastfeeding", "kangaroo mother care"],
+        "content": "Key newborn care practices: 1) Early initiation of breastfeeding within one hour of birth; 2) Feed colostrum (do NOT discard first thick yellow milk); 3) Exclusive breastfeeding for 6 months (no water, honey, or animal milk); 4) Keep baby warm with skin-to-skin contact (Kangaroo Mother Care for low birth weight infants); 5) Keep umbilical cord clean and dry (apply nothing on the cord stump); 6) Delay bathing for at least 48-72 hours to prevent hypothermia."
+      }
+    ]
+  }
+]
+

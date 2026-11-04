@@ -1,0 +1,30 @@
+[
+  {
+    "document_code": "NHM-ASHA-DANGER-2024-V3",
+    "title": "National Health Mission: ASHA Handbook on Maternal Danger Signs and Emergency Referral Protocols",
+    "organization": "National Health Mission (NHM), Govt of India",
+    "version": "3.0.0",
+    "effective_year": 2024,
+    "sections": [
+      {
+        "section_id": "DANGER_SIGNS_PREGNANCY",
+        "topic": "Key Danger Signs During Pregnancy",
+        "keywords": ["danger signs", "emergency", "bleeding", "convulsions", "fits", "headache", "blurred vision", "fetal movement", "fever"],
+        "content": "Immediate danger signs requiring emergency medical care: 1) Vaginal bleeding at any time in pregnancy; 2) Severe, persistent headache with visual disturbances/blurriness; 3) Convulsions or sudden loss of consciousness; 4) High fever with chills or foul-smelling vaginal discharge; 5) Severe abdominal pain or rigid abdomen; 6) Leaking of amniotic fluid before onset of labor; 7) Reduced or absent fetal kicks (< 10 movements over 2 hours after a meal); 8) Extreme breathlessness at rest."
+      },
+      {
+        "section_id": "REFERRAL_108_WORKFLOW",
+        "topic": "Emergency Referral Workflow (108 / 102 Services)",
+        "keywords": ["referral workflow", "108", "102", "ambulance", "transfer", "emergency action", "first referral unit"],
+        "content": "Emergency referral protocol for ASHA workers: 1) Immediately reassure the mother and family; 2) Dial 108 Emergency Ambulance service immediately for critical signs (convulsions, severe bleeding, obstructed labor); 3) For non-critical transport, arrange 102 Janani Express; 4) Prepare Maternal and Child Protection (MCP) card and referral slip with noted vital signs; 5) Inform the destination First Referral Unit (FRU) or PHC casualty in advance; 6) Accompany the pregnant woman to the hospital if possible; 7) Document referral time and track receiving facility admission."
+      },
+      {
+        "section_id": "HOME_VISIT_OBSERVATIONS",
+        "topic": "Essential Tasks During ASHA Home Visits",
+        "keywords": ["home visit", "what to record", "observations", "counselling topics", "asha duties"],
+        "content": "During an antenatal home visit, the ASHA must: 1) Inquire about mother's general well-being and screen for any danger signs; 2) Verify regular intake of IFA and Calcium tablets; 3) Check dietary intake (extra calorie requirement, iron-rich green leafy vegetables, proteins, safe water); 4) Guide birth preparedness (identifying delivery facility, transport arrangements, saving money, identifying blood donor); 5) Encourage institutional delivery and explain JSY / PMMVY financial entitlements; 6) Check next scheduled ANC date and remind family."
+      }
+    ]
+  }
+]
+
