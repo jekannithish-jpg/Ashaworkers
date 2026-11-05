@@ -1,4 +1,4 @@
-# ASHA Pregnancy Tracking System — Offline-First Maternal & Child Healthcare Platform
+# ASHA WORKER — Offline-First Maternal & Child Healthcare Platform
 
 An independent, production-grade, offline-first digital maternal healthcare tracking platform engineered for Accredited Social Health Activists (ASHAs), Auxiliary Nurse Midwives (ANMs), Medical Officers (MOs), and Block/District Health Supervisors in India.
 
