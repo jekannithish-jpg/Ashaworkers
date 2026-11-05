@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print(f"Swagger API Docs:         http://localhost:{port}/docs")
     print(f"Mobile PWA App:           http://localhost:{port}/")
     print(f"Pre-loaded demo accounts (Mobile + PIN or Username/Password):")
-    print(f"  • ASHA Worker:          9840112345 (PIN: 1234, OTP: 123456) / asha_lakshmi")
+    print(f"  • ASHA Worker:          9363302117 (PIN: 1234, OTP: 123456) / asha_lakshmi")
     print(f"  • ANM Nurse:            9840123456 (PIN: 1234, OTP: 123456) / anm_meena")
     print(f"  • Medical Officer:      9840134567 (PIN: 1234, OTP: 123456) / mo_suresh")
     print(f"  • Supervisor:           9840145678 (PIN: 1234, OTP: 123456) / supervisor_radha")

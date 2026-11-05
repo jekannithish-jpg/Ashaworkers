@@ -20,7 +20,7 @@ def seed_database(db: Session):
             password_hash=hash_password("AshaPass@123"),
             full_name="Lakshmi K (ஆஷா லட்சுமி)",
             role=UserRole.ASHA,
-            phone_number="9840112345",
+            phone_number="9363302117",
             village="Alanganallur",
             sub_centre="Alanganallur SC",
             primary_health_centre="Vadipatti PHC",

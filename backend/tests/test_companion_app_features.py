@@ -33,17 +33,17 @@ def test_mobile_login_pin_and_otp(db_session):
     asha = get_user(db_session, "asha_lakshmi")
     
     # Send OTP
-    otp_res = send_otp(SendOtpRequest(phone_number="9840112345"), db=db_session)
+    otp_res = send_otp(SendOtpRequest(phone_number="9363302117"), db=db_session)
     assert otp_res["status"] == "SUCCESS"
     assert "demo_otp" in otp_res
     
     # Login via 4-digit PIN
-    pin_res = mobile_login(MobileLoginRequest(phone_number="9840112345", pin="1234"), db=db_session)
+    pin_res = mobile_login(MobileLoginRequest(phone_number="9363302117", pin="1234"), db=db_session)
     assert pin_res.access_token is not None
     assert pin_res.user["role"] == UserRole.ASHA
     
     # Login via OTP
-    otp_login = mobile_login(MobileLoginRequest(phone_number="9840112345", otp="123456"), db=db_session)
+    otp_login = mobile_login(MobileLoginRequest(phone_number="9363302117", otp="123456"), db=db_session)
     assert otp_login.access_token is not None
 
 # TEST B: Child Registration & National Immunization Schedule

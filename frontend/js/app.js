@@ -907,7 +907,7 @@ function openLoginModal() {
     <div id="login-section-mobile">
       <div style="background:#f0f9ff; border:1px solid #bae6fd; padding:0.75rem; border-radius:8px; font-size:0.85rem; color:#0369a1; margin-bottom:1rem;">
         💡 <strong>ASHA Field Worker Credentials:</strong><br>
-        Mobile: <code>9840112345</code> | Default PIN: <code>1234</code> | Demo OTP: <code>123456</code><br>
+        Mobile: <code>9363302117</code> | Default PIN: <code>1234</code> | Demo OTP: <code>123456</code><br>
         Supervisor: <code>9840145678</code> | PIN: <code>1234</code>
       </div>
 
@@ -915,7 +915,7 @@ function openLoginModal() {
         <div class="form-group">
           <label><strong>${window.t('enter_mobile')} *</strong></label>
           <div style="display:flex; gap:0.5rem;">
-            <input type="tel" id="login-phone" class="form-control" required placeholder="9840112345" value="9840112345" maxlength="10">
+            <input type="tel" id="login-phone" class="form-control" required placeholder="9363302117" value="9363302117" maxlength="10">
             <button type="button" class="btn btn-outline btn-sm" style="white-space:nowrap;" onclick="requestLoginOtp()">
               📩 ${window.t('get_otp_btn')}
             </button>
@@ -1159,7 +1159,7 @@ function openEmergencyModal() {
 Code: ${dispatchCode}
 Patient: Kavitha M (BEN-2026-0001, Ph: 9840199001)
 Facility: Alanganallur CHC / Vadipatti PHC
-ASHA: Lakshmi (9840112345)</pre>
+ASHA: Lakshmi (9363302117)</pre>
         </div>
 
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:1rem;">
