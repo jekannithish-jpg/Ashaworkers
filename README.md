@@ -95,7 +95,7 @@ Login using the built-in dropdown switcher, username/password, or **Mobile Numbe
 
 | Role | Mobile No | PIN | Username | Password | Scope | Capabilities |
 |---|---|---|---|---|---|---|
-| **ASHA Worker** | `9840112345` | `1234` | `asha_lakshmi` | `AshaPass@123` | Alanganallur Village | Beneficiary registration, EHR management, child immunizations, GPS home visits, 108 emergency SOS |
+| **ASHA Worker** | `9363302117` | `0202` | `PATIENT` | `AshaPass@123` | PINNAVASAL Village | Beneficiary registration, EHR management, child immunizations, GPS home visits, 108 emergency SOS |
 | **ANM Nurse** | `9840123456` | `1234` | `anm_meena` | `AnmPass@123` | Alanganallur SC | Clinical measurements (BP, Hb, Albumin), reviewing flagged cases, referral tracking |
 | **Medical Officer** | `9840134567` | `1234` | `mo_suresh` | `DoctorPass@123` | Vadipatti PHC | Clinical care plans, resolving high-risk cases, confirming admissions |
 | **Supervisor** | `9840145678` | `1234` | `supervisor_radha` | `SuperPass@123` | Vadipatti Block | Daily, weekly & monthly reports, village comparison, audit log inspection, report export |
