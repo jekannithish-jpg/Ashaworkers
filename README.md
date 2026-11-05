@@ -1,4 +1,4 @@
-# ASHA Pregnancy Tracking System — Offline-First Maternal & Child Healthcare Platform
+# ASHA WORKER — Offline-First Maternal & Child Healthcare Platform
 
 An independent, production-grade, offline-first digital maternal healthcare tracking platform engineered for Accredited Social Health Activists (ASHAs), Auxiliary Nurse Midwives (ANMs), Medical Officers (MOs), and Block/District Health Supervisors in India.
 
@@ -101,9 +101,97 @@ Login using the built-in dropdown switcher, username/password, or **Mobile Numbe
 | **Supervisor** | `9840145678` | `1234` | `supervisor_radha` | `SuperPass@123` | Vadipatti Block | Daily, weekly & monthly reports, village comparison, audit log inspection, report export |
 | **System Admin** | `9840156789` | `1234` | `admin_system` | `AdminPass@123` | District IT Cell | User account creation, role assignment, system configuration |
 
-*Demo OTP for all numbers is `123456`.*
-
----
+# OTP auto-generation and verification (Python + Flask)
+# Setup: pip install flask
+# Run:   python app.py   then open http://localhost:3000/otp.html
+ 
+import hashlib
+import hmac
+import secrets
+import time
+ 
+from flask import Flask, jsonify, request, send_from_directory
+ 
+app = Flask(__name__, static_folder=".", static_url_path="")
+ 
+OTP_LENGTH = 6
+OTP_TTL = 5 * 60        # OTP valid for 5 minutes
+RESEND_WAIT = 30        # seconds before a new OTP can be requested
+MAX_ATTEMPTS = 5        # wrong tries allowed per OTP
+ 
+# In-memory store. For production use Redis or a database.
+store = {}  # key: phone/email -> {hash, expires, attempts, last_sent}
+ 
+ 
+def generate_otp() -> str:
+    # secrets is cryptographically secure (do NOT use random.randint)
+    return str(secrets.randbelow(10 ** OTP_LENGTH)).zfill(OTP_LENGTH)
+ 
+ 
+def hash_otp(otp: str) -> str:
+    return hashlib.sha256(otp.encode()).hexdigest()
+ 
+ 
+def send_otp(target: str, otp: str) -> None:
+    # Replace with a real SMS/email provider (MSG91, Fast2SMS, Twilio, smtplib...)
+    print(f"[DEV ONLY] OTP for {target}: {otp}")
+ 
+ 
+@app.route("/")
+def home():
+    return send_from_directory(".", "otp.html")
+ 
+ 
+@app.post("/api/send-otp")
+def api_send_otp():
+    data = request.get_json(silent=True) or {}
+    target = str(data.get("target", "")).strip()
+    if not target:
+        return jsonify(error="Phone or email required"), 400
+ 
+    record = store.get(target)
+    if record and time.time() - record["last_sent"] < RESEND_WAIT:
+        return jsonify(error="Please wait before requesting another OTP"), 429
+ 
+    otp = generate_otp()
+    store[target] = {
+        "hash": hash_otp(otp),
+        "expires": time.time() + OTP_TTL,
+        "attempts": 0,
+        "last_sent": time.time(),
+    }
+    send_otp(target, otp)
+    return jsonify(message="OTP sent")
+ 
+ 
+@app.post("/api/verify-otp")
+def api_verify_otp():
+    data = request.get_json(silent=True) or {}
+    target = str(data.get("target", "")).strip()
+    otp = str(data.get("otp", "")).strip()
+ 
+    record = store.get(target)
+    if not record:
+        return jsonify(error="No OTP requested"), 400
+ 
+    if time.time() > record["expires"]:
+        store.pop(target, None)
+        return jsonify(error="OTP expired"), 400
+ 
+    if record["attempts"] >= MAX_ATTEMPTS:
+        store.pop(target, None)
+        return jsonify(error="Too many attempts. Request a new OTP"), 429
+ 
+    record["attempts"] += 1
+    if not hmac.compare_digest(hash_otp(otp), record["hash"]):
+        return jsonify(error="Incorrect OTP"), 400
+ 
+    store.pop(target, None)  # one-time use
+    return jsonify(message="Verified")
+ 
+ 
+if __name__ == "__main__":
+    app.run(port=3000, debug=True)
 
 ## 6. Running the Automated Acceptance Test Suite
 
