@@ -17,13 +17,13 @@ def seed_database(db: Session):
     users = [
         User(
             username="asha_lakshmi",
-            password_hash=hash_password("AshaPass@123"),
-            full_name="Lakshmi K (ஆஷா லட்சுமி)",
+            password_hash=hash_password("nithish0111"),
+            full_name="Nithish (ஆஷா நவீன்/லட்சுமி)",
             role=UserRole.ASHA,
             phone_number="9363302117",
-            village="Alanganallur",
-            sub_centre="Alanganallur SC",
-            primary_health_centre="Vadipatti PHC",
+            village="Thanjavur",
+            sub_centre="Thanjavur SC",
+            primary_health_centre="Thanjavur PHC",
             preferred_language="ta"
         ),
         User(
