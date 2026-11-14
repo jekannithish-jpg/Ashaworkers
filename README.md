@@ -191,7 +191,79 @@ def api_verify_otp():
  
  
 if __name__ == "__main__":
-    app.run(port=3000, debug=True)
+    app.run(port=3000, debug=True)[12:39 pm, 14/11/2026] 🐼: self.addEventListener("install", event => {
+    event.waitUntil(
+        caches.open("asha-cache-v1").then(cache =>
+            cache.addAll(["/", "/index.html"])
+        )
+    );
+    self.skipWaiting();
+});
+
+self.addEventListener("activate", event => {
+    event.waitUntil(self.clients.claim());
+});
+
+// Notify the website when background sync is available
+self.addEventListener("sync", event => {
+    if (event.tag === "asha-auto-sync") {
+        event.waitUntil(
+            self.clients.matchAll().then(clients => {
+                clients.forEach(client => {
+                    client.postMessage("SYNC_REQUIRED");
+                });
+            })
+        );
+    }
+});
+: navigator.serviceWorker.addEventListener("message", event => {
+    if (event.data === "SYNC_REQUIRED") {
+        syncData();
+    }
+});
+: navigator.serviceWorker.ready.then(registration => {
+    if (registration.sync) {
+        registration.sync.register("asha-auto-sync");
+    }
+});
+: const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+// Demo storage only.
+// Replace with an authenticated database.
+const database = new Map();
+: app.post("/api/records/sync", (req, res) => {
+
+    const records = req.body.records || [];
+    const syncedIds = [];
+
+    for (const record of records) {
+
+        if (!record.id || !record.name ||
+            !record.age || !record.village) {
+            continue;
+        }
+
+        // Prevent duplicate records
+        if (!database.has(record.id)) {
+            database.set(record.id, {
+                ...record,
+                synced: true
+            });
+        }
+
+        syncedIds.push(record.id);
+    }
+
+    res.json({
+        message: "Sync completed",
+        syncedIds
+    …
+: npm init -y
+npm install express
+node server.js
 
 ## 6. Running the Automated Acceptance Test Suite
 
