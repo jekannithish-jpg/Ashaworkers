@@ -1,4 +1,4 @@
-const CACHE_NAME = 'asha-tracker-v3';
+const CACHE_NAME = 'asha-tracker-v4';
 const ASSETS_TO_CACHE = [
   '/',
   '/static/css/styles.css',
@@ -33,6 +33,19 @@ self.addEventListener('activate', (event) => {
     })
   );
   self.clients.claim();
+});
+
+// Background Sync: Notify client when connection is restored
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'asha-auto-sync') {
+    event.waitUntil(
+      self.clients.matchAll().then((clients) => {
+        clients.forEach((client) => {
+          client.postMessage('SYNC_REQUIRED');
+        });
+      })
+    );
+  }
 });
 
 self.addEventListener('fetch', (event) => {

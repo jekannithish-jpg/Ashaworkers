@@ -17,9 +17,22 @@ window.t = function(key) {
 
 // Initial App Startup
 document.addEventListener('DOMContentLoaded', async () => {
-  // Setup service worker
+  // Setup service worker & background auto-sync
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/static/sw.js').catch(() => {});
+
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      if (event.data === 'SYNC_REQUIRED') {
+        console.log('Background sync notification received: SYNC_REQUIRED');
+        triggerManualSync();
+      }
+    });
+
+    navigator.serviceWorker.ready.then((registration) => {
+      if ('sync' in registration) {
+        registration.sync.register('asha-auto-sync').catch(() => {});
+      }
+    });
   }
 
   // Bind Language Toggle
