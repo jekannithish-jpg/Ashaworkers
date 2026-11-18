@@ -263,8 +263,44 @@ const database = new Map();
     …
 : npm init -y
 npm install express
-node server.js
+node server.js                                                                                                                                                                        
+// App.js — example: save offline + auto sync + status badge
+import React, { useEffect, useState } from "react";
+import { View, Text, Button } from "react-native";
+import { startAutoSync, syncNow } from "./sync";
+import { saveRecord, listRecords, pendingCount } from "./db";
 
+export default function App() {
+  const [list, setList] = useState([]);
+  const [pending, setPending] = useState(0);
+
+  const refresh = () => { setList(listRecords("beneficiary")); setPending(pendingCount()); };
+
+  useEffect(() => {
+    const stop = startAutoSync(60000);
+    const t = setInterval(refresh, 3000);
+    refresh();
+    return () => { stop(); clearInterval(t); };
+  }, []);
+
+  const addTest = () => {
+    saveRecord("beneficiary", { name: "Lakshmi", age: 24, edd: "2027-02-10", highRisk: false }, "asha-001");
+    refresh();
+  };
+
+  return (
+    <View style={{ flex: 1, padding: 24, marginTop: 40 }}>
+      <Text style={{ fontSize: 18 }}>
+        {pending === 0 ? "✅ All data synced" : `⏳ ${pending} records waiting to sync`}
+      </Text>
+      <Button title="Add beneficiary (works offline)" onPress={addTest} />
+      <Button title="Sync now" onPress={async () => { await syncNow(); refresh(); }} />
+      {list.map((r) => (
+        <Text key={r.id}>{r.data.name} — {r.dirty ? "not synced" : "synced"}</Text>
+      ))}
+    </View>
+  );
+}
 ## 6. Running the Automated Acceptance Test Suite
 
 The test suite validates all 19 criteria across maternal and child health tracking:
